@@ -1,0 +1,71 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY</h1>
+    <div id="content">
+        <h2>Verbs and Nouns</h2>
+        <p>The basic interaction consisted of specifying a 2-digit Verb code (to request an action),
+           and a 2-digit Noun code (to indicate the object of the action). As an example, Verb 06 is
+           "display", and Noun 44 is "orbital parameters." So to display the orbital parameters you would
+           press the following sequence of keys: VERB, 0, 6, NOUN, 4, 4, ENTR. This sequence is indicated
+           with the shorthand notation "V06N44E."</p>
+        <p>Not all Verbs were for use of the crew: some verbs were used by the computer to request a
+           crewmember to take an action. As an example, Verb 50 means "Please Perform", and would be used
+           in combination with a Noun code 25 (checklist) and a checklist item number to request a 
+           crewmember to perform a certain checklist task.</p>
+        <p>Nouns represent various items of information. Each noun consists of 1, 2 or 3 components. For
+           example, the orientation of the spacecraft is represented by its pitch, roll and yaw.</p>
+        <p>A summary of the defined Verbs and Nouns is available in iDSKY by tapping the "List" button 
+           at the top right of the display. This reference summary includes other lists that were
+           included in the on-board documentation available to the crew: program numbers, alarm codes, 
+           checklist codes, and navigation stars.</p>
+        <h2>Basic Verbs</h2>
+        <p>The verbs in the range 1-25 were used for basic display and entry operations. All the 0x
+           verbs were requests to display data; all the 1x verbs were requests to monitor data - the display
+           would be continuously updated at 1-second intervals until the display was cancelled by the
+           user; and the verbs from 21 to 25 were used to load data.</p>
+        <h2>Understanding Nouns</h2>
+        <p>The AGC concept of <i>nouns</i> is analogous to the concept of<i>objects</i> in
+           modern programming languages. Essentially, a noun represents an entity that may
+           be defined by one or more attributes. As an example, the orientation of the
+           spacecraft may be defined by its angular position in 3 axes relative to a
+           reference platform. The orientation is a single concept, but it is respresented
+           by three attributes. Each attribute is referred to as a <i>component</i>.</p>
+        <p>Nouns consist of 1, 2 or 3 components. Each component is represented by a value
+           in erasable memory. Memory in the AGC is organized as 15-bit words. Signed values
+           are represented in one's-complement form. Unsigned values can range from 0 to 32767,
+           and signed values can range from -16383 to +16383. The values in a pair of words
+           can be combined to represent a signed number with a 28-bit mantissa; such values
+           are "double precision" (DP) values.</p>
+        <p>The AGC does not support "floating point" values. Instead, components are pre-scaled
+           by an appropriate factor to achieve maximum precision for the range of values
+           the component is intended to represent. Also, since the DSKY display does not
+           contain decimal point indicators, values in the register displays have an <i>implied</i>
+           decimal point. As an example, Noun 44 (Orbital Parameters) displays the Apoapsis and 
+           Periapsis of the spacecraft orbit in 1/10ths of nautical miles; so a display of
+           +00987 would be interpreted as 98.7 nmi. In the Noun table the implied decimal
+           point is shown in the <i>Scaling</i> column. The <i>Scaling</i> column also lists the
+           units that are represented by the displayed value.</p>
+        <h2>AGC Architecture Notes</h2>
+        <ul>
+            <li>The size of a word in the AGC is fifteen bits.</li>
+            <li>The developers used octal notation to represent binary data, so 
+                each word can be represented in 5 octal digits.</li>
+            <li>Data is stored in 1's complement form.</li>
+            <li>"Erasable" memory (think RAM) consists of 8 &times; 256-word pages
+                for a total of 2048 words. Erasable memory is implemented
+                with "core" technology.</li>
+            <li>"Fixed" memory (think ROM) consists of 36 &times; 1024-word pages
+                for a total of 36,864 words. Fixed memory is implemented
+                using "rope core" technology.</li>
+        </ul>
+    </div>
+</body>
+</html>

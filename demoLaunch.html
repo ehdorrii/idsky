@@ -1,0 +1,80 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY Demonstration</h1>
+    <div id="content">
+        <h2>Launch - Procedure</h2>
+        <table>
+            <tr>
+                <th>Action</th>
+                <th>Response</th>
+            </tr>
+            <tr><td>V37E</td><td>Flashing V37</td></tr>
+            <tr><td>01E</td><td>01 appears in PROG
+                            <br>...NO ATT on
+                            <br>...NO ATT off
+                            <br>...PROG changes to 02</td></tr>
+            <tr><td>V75E</td><td>PROG changes to 11
+                             <br>...EOI monitor is displayed
+                             <br>...after about 12 minutes
+                             <br>...KEY REL flashes</td></tr>
+            <tr><td>KEY REL</td><td>Orbit parameters display</td></tr>
+            <tr><td>PRO</td><td>Terminate monitor</td></tr>
+            <tr><td>V37E</td><td>Flashing V37</td></tr>
+            <tr><td>00E</td><td>00 appears in PROG</td></tr>
+        </table>
+        <h2>Launch - Commentary</h2>
+        <p>To prepare the AGC for launch, it must first be initialized. This is done by selecting 
+		the <b>Prelaunch Initialization</b> program, P01. Programs are selected with verb 37, 
+		<b>Change Program</b>. A flashing display is always an indication that the computer is 
+		expecting some kind of input. A flashing Verb 37 means that the AGC is expecting a program 
+		number.  Verb 37 does not act on a noun, but when the program number is keyed in it appears 
+		in the Noun area of the display. After you press ENTR, the selected program appears in the 
+		PROG display.</p>
+        <p>Once Program 01 is started you won't see much happening other than having the <b>NO 
+		ATT</b> alert illuminate for a few seconds. Prelaunch Initialization orients the IMU to its 
+		coarse alignment position and resets the accelerometers. Once the hardware reports back to 
+		the AGC indicating that it has properly reset, the <b>Prelaunch Gyrocompassing</b> program, 
+		P02, is automatically started.</p> 
+		<p>Prelaunch Gyrocompassing uses some basic physics to align the IMU. Using the effect of
+        gravity to determine the local vertical, and the effect of precession caused by the rotation
+        of the Earth at the latitude of the launch pad, it takes 640 seconds to establish a fixed
+        orientation in space. Once a stable platform has been established, the AGC is ready for launch.
+        None of this is visible inside the spacecraft, so iDSKY dispenses with the 640 second
+        interval.</p>
+        <p>At the instant of lift-off, umbilical cables are pulled from the first stage, which causes
+        a signal to be sent to the AGC. In the event this signal isn't received, there is a backup 
+        indication &ndash; Verb 75.</p>
+        <p>About 3 minutes before the scheduled launch, the commander keys in Verb 75, <i>but does not 
+		press ENTR</i>. When the lift-off signal is received (or the CDR presses ENTR on the latent 
+		V75) the <b>Earth Orbit Insertion monitor</b> program (P11) is started. In this simulation 
+		there is never going to be any indication of lift-off, so you need to use the manual back-up 
+        indication by keying V75E. Notice that (1) the program indicator now shows <b>11</b>; and the 
+		VERB and NOUN indicators show 06 (display decimal) 62 (flight parameters). These parameters 
+		are updated every 2 seconds until S-IVB cutoff occurs. The numbers that are displayed show (1) 
+		the inertial velocity (in feet per second); (2) the rate of change in altitude (also in fps); 
+		and (3) altitude above the launch pad (in tenths of nautical miles).</p>
+        <p>The actual numbers displayed during this simulated launch are based on one of the
+        extended capability J-class missions, for which the booster payload capacity was increased in 
+		part by lofting the spacecraft into a lower orbit than previous missions - roughly 93 nautical
+        miles, as opposed to say, Apollo 12's 102 nmi orbit. Observe that the final altitude is reached
+        at around 6.5 minutes after launch, well before S-II shutdown. The remaining four-plus minutes
+        of boost are spent achieving orbital velocity - approximately 25,600 fps.</p>
+        <p>Once orbital velocity has been achieved and S-IVB cutoff occurs, the last display is left 
+		intact so that the crew can record these numbers. Then KEY REL is pressed to show the parameters 
+        of the achieved orbit. These parameters are (1) apogee (nmi with one decimal); (2) perigee
+        (nmi with one decimal); and (3) time of free fall (in minutes and seconds). That last parameter
+        (TFF) is how long before earth impact occurs; in a stable orbit that number will be
+        displayed as 59 59.</p>
+        <p>Finally, the monitor of orbital parameters is terminated by pressing PRO, and the
+        idle program (P00) is selected.</p>
+    </div>
+</body>
+</html>

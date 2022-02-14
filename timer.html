@@ -1,0 +1,57 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<head>
+    <title>CM Mission Timer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>Mission Timer</h1>
+    <div id="mtcontent">
+        <div id="timer">
+            <img src="png/320/Mission_Timer.png" alt="" border="0" id="iTimer">
+
+            <div id="vmtPSI"><img src="png/320/Digit_blank.png" id="mtPSI"></div>
+            
+            <div id="vmtH1"><img src="png/320/Digit_0.png" id="mtH1"></div>
+            <div id="vmtH2"><img src="png/320/Digit_0.png" id="mtH2"></div>
+            <div id="vmtH3"><img src="png/320/Digit_0.png" id="mtH3"></div>
+            
+            <div id="vmtM1"><img src="png/320/Digit_0.png" id="mtM1"></div>
+            <div id="vmtM2"><img src="png/320/Digit_0.png" id="mtM2"></div>
+            
+            <div id="vmtS1"><img src="png/320/Digit_0.png" id="mtS1"></div>
+            <div id="vmtS2"><img src="png/320/Digit_0.png" id="mtS2"></div>
+                
+            <div id="vmtSW1"><img src="png/320/Toggle_Neutral.png" id="mtSW1" usemap="#SW1map">
+                <map NAME="SW1map">
+                    <area SHAPE="RECT" COORDS="0,0,25,12"  onmousedown="mtIncr(event, 1, 'up', 36000);">
+                    <area SHAPE="RECT" COORDS="0,13,25,25"  onmousedown="mtIncr(event, 1, 'down', 3600);">
+                </map>
+            </div>
+            <div id="vmtSW2"><img src="png/320/Toggle_Neutral.png" id="mtSW2" usemap="#SW2map">
+                <map NAME="SW2map">
+                    <area SHAPE="RECT" COORDS="0,0,25,12"  onmousedown="mtIncr(event, 2, 'up', 600);">
+                    <area SHAPE="RECT" COORDS="0,13,25,25"  onmousedown="mtIncr(event, 2, 'down', 60);">
+                </map>
+            </div>
+            <div id="vmtSW3"><img src="png/320/Toggle_Neutral.png" id="mtSW3" usemap="#SW3map">
+                <map NAME="SW3map">
+                    <area SHAPE="RECT" COORDS="0,0,25,12"  onmousedown="mtIncr(event, 3, 'up', 10);">
+                    <area SHAPE="RECT" COORDS="0,13,25,25"  onmousedown="mtIncr(event, 3, 'down', 1);">
+                </map>
+            </div>
+            <div id="vmtSW4"><img src="png/320/Toggle_Neutral.png" id="mtSW4" usemap="#SW4map">
+                <map NAME="SW4map">
+                    <area SHAPE="RECT" COORDS="0,0,25,7"  onmousedown="mtStart(event);">
+                    <area SHAPE="RECT" COORDS="0,8,25,16"  onmousedown="mtStop(event);">
+                    <area SHAPE="RECT" COORDS="0,17,25,25"  onmousedown="mtReset(event);">
+                </map>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

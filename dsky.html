@@ -1,0 +1,169 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY</h1>
+
+    <div id="mtcontent">
+        <div id="timer">
+            <img src="png/dsky/Mission_Timer.png" alt="" border="0" id="iTimer">
+
+            <div id="vmtPSI"><img src="png/dsky/Digit_blank.png" id="mtPSI"></div>
+            
+            <div id="vmtH1"><img src="png/dsky/Digit_0.png" id="mtH1"></div>
+            <div id="vmtH2"><img src="png/dsky/Digit_0.png" id="mtH2"></div>
+            <div id="vmtH3"><img src="png/dsky/Digit_0.png" id="mtH3"></div>
+            
+            <div id="vmtM1"><img src="png/dsky/Digit_0.png" id="mtM1"></div>
+            <div id="vmtM2"><img src="png/dsky/Digit_0.png" id="mtM2"></div>
+            
+            <div id="vmtS1"><img src="png/dsky/Digit_0.png" id="mtS1"></div>
+            <div id="vmtS2"><img src="png/dsky/Digit_0.png" id="mtS2"></div>
+                
+            <div id="vmtSW1"><img src="png/dsky/Toggle_Neutral.png" id="mtSW1" usemap="#SW1map" alt="" border="0">
+                <map NAME="SW1map">
+                    <area SHAPE="RECT" COORDS="0, 0,  47, 27"  onmousedown="mtIncr(event, 1, 'up',   36000);">
+                    <area SHAPE="RECT" COORDS="0, 28, 47, 52"  onmousedown="mtIncr(event, 1, 'down', 3600);">
+                </map>
+            </div>
+            <div id="vmtSW2"><img src="png/dsky/Toggle_Neutral.png" id="mtSW2" usemap="#SW2map">
+                <map NAME="SW2map">
+                    <area SHAPE="RECT" COORDS="0,  0, 47, 27"  onmousedown="mtIncr(event, 2, 'up',   600);">
+                    <area SHAPE="RECT" COORDS="0, 28, 47, 52"  onmousedown="mtIncr(event, 2, 'down', 60);">
+                </map>
+            </div>
+            <div id="vmtSW3"><img src="png/dsky/Toggle_Neutral.png" id="mtSW3" usemap="#SW3map">
+                <map NAME="SW3map">
+                    <area SHAPE="RECT" COORDS="0,  0, 47, 27"  onmousedown="mtIncr(event, 3, 'up',   10);">
+                    <area SHAPE="RECT" COORDS="0, 28, 47, 52"  onmousedown="mtIncr(event, 3, 'down', 1);">
+                </map>
+            </div>
+            <div id="vmtSW4"><img src="png/dsky/Toggle_Neutral.png" id="mtSW4" usemap="#SW4map">
+                <map NAME="SW4map">
+                    <area SHAPE="RECT" COORDS="0,  0, 47, 27"  onmousedown="mtStart(event);">
+                    <area SHAPE="RECT" COORDS="0, 18, 47, 35"  onmousedown="mtStop(event);">
+                    <area SHAPE="RECT" COORDS="0, 36, 47, 52"  onmousedown="mtReset(event);">
+                </map>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div id="fascia">
+            <img src="png/dsky/dsky.png" alt="" border="0" id="iFascia" usemap="#DSKYMAP">
+            
+            <map name="DSKYMAP">
+                <area SHAPE="RECT" COORDS="  0, 506,  94, 596"  onmousedown="keyPress(event,1,1);">
+                <area SHAPE="RECT" COORDS="  0, 597,  94, 684"  onmousedown="keyPress(event,1,2);">
+
+                <area SHAPE="RECT" COORDS=" 95, 462, 180, 551"  onmousedown="keyPress(event,2,1);">
+                <area SHAPE="RECT" COORDS=" 95, 552, 180, 641"  onmousedown="keyPress(event,2,2);">
+                <area SHAPE="RECT" COORDS=" 95, 642, 180, 732"  onmousedown="keyPress(event,2,3);">
+
+                <area SHAPE="RECT" COORDS="181, 462, 268, 551"  onmousedown="keyPress(event,3,1);">
+                <area SHAPE="RECT" COORDS="181, 552, 268, 641"  onmousedown="keyPress(event,3,2);">
+                <area SHAPE="RECT" COORDS="181, 642, 268, 732"  onmousedown="keyPress(event,3,3);">
+
+                <area SHAPE="RECT" COORDS="269, 462, 356, 551"  onmousedown="keyPress(event,4,1);">
+                <area SHAPE="RECT" COORDS="269, 552, 356, 641"  onmousedown="keyPress(event,4,2);">
+                <area SHAPE="RECT" COORDS="269, 642, 356, 732"  onmousedown="keyPress(event,4,3);">
+
+                <area SHAPE="RECT" COORDS="357, 462, 444, 551"  onmousedown="keyPress(event,5,1);">
+                <area SHAPE="RECT" COORDS="357, 552, 444, 641"  onmousedown="keyPress(event,5,2);">
+                <area SHAPE="RECT" COORDS="357, 642, 444, 732"  onmousedown="keyPress(event,5,3);">
+
+                <area SHAPE="RECT" COORDS="445, 462, 532, 551"  onmousedown="keyPress(event,6,1);">
+                <area SHAPE="RECT" COORDS="445, 552, 532, 641"  onmousedown="keyPress(event,6,2);" onmouseup="proRelease()" id="PRO">
+                <area SHAPE="RECT" COORDS="445, 642, 532, 732"  onmousedown="keyPress(event,6,3);">
+
+                <area SHAPE="RECT" COORDS="533, 506, 618, 596"  onmousedown="keyPress(event,7,1);">
+                <area SHAPE="RECT" COORDS="533, 597, 618, 684"  onmousedown="keyPress(event,7,2);">
+            </map>
+
+            <div id="whenon"><img src="png/dsky/When_On.png" alt="" border="0" id="WhenOn" usemap="#DSKYMAP"></div>
+            <div id="ifcmc"><img  src="png/dsky/If_CMC.png"  alt="" border="0" id="IfCMC"  usemap="#DSKYMAP"></div>
+
+            <!-- Alerts Column 1 -->
+            <div id="vAlertUplinkActy"><img src="png/dsky/Alert_on_UPLINK_ACTY.png" id="AlertUplinkActy"></div>
+            <div id="vAlertNoAtt"><img      src="png/dsky/Alert_on_NO_ATT.png"      id="AlertNoAtt"></div>
+            <div id="vAlertStby"><img       src="png/dsky/Alert_on_STBY.png"        id="AlertStby"></div>
+            <div id="vAlertKeyRel"><img     src="png/dsky/Alert_on_KEY_REL.png"     id="AlertKeyRel"></div>
+            <div id="vAlertOprErr"><img     src="png/dsky/Alert_on_OPR_ERR.png"     id="AlertOprErr"></div>
+            <div id="vAlertPrioDisp"><img   src="png/dsky/Alert_on_blank42.png"     id="AlertPrioDisp"></div>
+            <div id="vAlertNoDap"><img      src="png/dsky/Alert_on_blank42.png"     id="AlertNoDap"></div>
+            
+            <!-- Alerts Column 2 -->
+            <div id="vAlertTemp"><img       src="png/dsky/Alert_on_TEMP.png"        id="AlertTemp"></div>
+            <div id="vAlertGimbalLock"><img src="png/dsky/Alert_on_GIMBAL_LOCK.png" id="AlertGimbalLock"></div>
+            <div id="vAlertProg"><img       src="png/dsky/Alert_on_PROG.png"        id="AlertProg"></div>
+            <div id="vAlertRestart"><img    src="png/dsky/Alert_on_RESTART.png"     id="AlertRestart"></div>
+            <div id="vAlertTracker"><img    src="png/dsky/Alert_on_TRACKER.png"     id="AlertTracker"></div>
+            <div id="vAlertAlt"><img        src="png/dsky/Alert_on_ALT.png"         id="AlertAlt"></div>
+            <div id="vAlertVel"><img        src="png/dsky/Alert_on_VEL.png"         id="AlertVel"></div>
+            
+            <!-- COMP ACTY Annunciator -->
+            <div id="vAnnCompActy"><img src="png/dsky/Ann_on_COMP_ACTY.png" id="AnnCompActy"></div>
+            
+            <!-- PROG -->
+            <div id="vMD1"><img  src="png/dsky/Digit_blank.png" id="MD1"></div>
+            <div id="vMD2"><img  src="png/dsky/Digit_blank.png" id="MD2"></div>
+
+            <!-- VERB -->
+            <div id="vVD1"><img  src="png/dsky/Digit_blank.png" id="VD1"></div>
+            <div id="vVD2"><img  src="png/dsky/Digit_blank.png" id="VD2"></div>
+
+            <!-- NOUN -->
+            <div id="vND1"><img  src="png/dsky/Digit_blank.png" id="ND1"></div>
+            <div id="vND2"><img  src="png/dsky/Digit_blank.png" id="ND2"></div>
+
+            <!-- Register 1 -->
+            <div id="vR1S"><img  src="png/dsky/Digit_blank.png" id="R1S"></div>
+            <div id="vR1D1"><img src="png/dsky/Digit_blank.png" id="R1D1"></div>
+            <div id="vR1D2"><img src="png/dsky/Digit_blank.png" id="R1D2"></div>
+            <div id="vR1D3"><img src="png/dsky/Digit_blank.png" id="R1D3"></div>
+            <div id="vR1D4"><img src="png/dsky/Digit_blank.png" id="R1D4"></div>
+            <div id="vR1D5"><img src="png/dsky/Digit_blank.png" id="R1D5"></div>
+
+            <!-- Register 2 -->
+            <div id="vR2S"><img  src="png/dsky/Digit_blank.png" id="R2S"></div>
+            <div id="vR2D1"><img src="png/dsky/Digit_blank.png" id="R2D1"></div>
+            <div id="vR2D2"><img src="png/dsky/Digit_blank.png" id="R2D2"></div>
+            <div id="vR2D3"><img src="png/dsky/Digit_blank.png" id="R2D3"></div>
+            <div id="vR2D4"><img src="png/dsky/Digit_blank.png" id="R2D4"></div>
+            <div id="vR2D5"><img src="png/dsky/Digit_blank.png" id="R2D5"></div>
+
+            <!-- Register 3 -->
+            <div id="vR3S"><img  src="png/dsky/Digit_blank.png" id="R3S"></div>
+            <div id="vR3D1"><img src="png/dsky/Digit_blank.png" id="R3D1"></div>
+            <div id="vR3D2"><img src="png/dsky/Digit_blank.png" id="R3D2"></div>
+            <div id="vR3D3"><img src="png/dsky/Digit_blank.png" id="R3D3"></div>
+            <div id="vR3D4"><img src="png/dsky/Digit_blank.png" id="R3D4"></div>
+            <div id="vR3D5"><img src="png/dsky/Digit_blank.png" id="R3D5"></div>
+	    </div>
+		<div id="theDigits">
+            <img  src="png/dsky/Digit_Plus.png">
+            <img  src="png/dsky/Digit_Minus.png">
+            <img  src="png/dsky/Digit_0.png">
+            <img  src="png/dsky/Digit_1.png">
+            <img  src="png/dsky/Digit_2.png">
+            <img  src="png/dsky/Digit_3.png">
+            <img  src="png/dsky/Digit_4.png">
+            <img  src="png/dsky/Digit_5.png">
+            <img  src="png/dsky/Digit_6.png">
+            <img  src="png/dsky/Digit_7.png">
+            <img  src="png/dsky/Digit_8.png">
+            <img  src="png/dsky/Digit_9.png">
+        </div>
+    </div>
+	<div id="lowerpad">
+	    <p>&nbsp;</p>
+		<p>&nbsp;</p>
+    <div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>Verb Codes</h1>
+    <div id="content">
+        <h2>Regular Verbs</h2>
+        <table>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+            </tr>
+            <tr><td align="center">01</td><td>Display octal component 1 in R1</td></tr>
+            <tr><td align="center">02</td><td>Display octal component 2 in R1</td></tr>
+            <tr><td align="center">03</td><td>Display octal component 3 in R1</td></tr>
+            <tr><td align="center">04</td><td>Display octal components 1,2 in R1,R2</td></tr>
+            <tr><td align="center">05</td><td>Display octal component 1,2,3 in R1,R2,R3</td></tr>
+            <tr><td align="center">06</td><td>Display decimal</td></tr>
+            <tr><td align="center">07</td><td>Display double-precision decimal (R1,R2)</td></tr>
+            <tr><td align="center">11</td><td>Monitor octal component 1 in R1</td></tr>
+            <tr><td align="center">12</td><td>Monitor octal component 2 in R1</td></tr>
+            <tr><td align="center">13</td><td>Monitor octal component 3 in R1</td></tr>
+            <tr><td align="center">14</td><td>Monitor octal component 1,2 in R1,R2</td></tr>
+            <tr><td align="center">15</td><td>Monitor octal component 1,2,3 in R1,R2,R3</td></tr>
+            <tr><td align="center">16</td><td>Monitor decimal</td></tr>
+            <tr><td align="center">17</td><td>Monitor double-precision decimal (R1,R2)</td></tr>
+            <tr><td align="center">21</td><td>Load component 1 (R1)</td></tr>
+            <tr><td align="center">22</td><td>Load component 2 (R2)</td></tr>
+            <tr><td align="center">23</td><td>Load component 3 (R3)</td></tr>
+            <tr><td align="center">24</td><td>Load components 1,2 (R1,R2)</td></tr>
+            <tr><td align="center">25</td><td>Load components 1,2,3 (R1,R2,R3)</td></tr>
+            <tr><td align="center">27</td><td>Display fixed memory</td></tr>
+            <tr><td align="center">30</td><td>Request Executive</td></tr>
+            <tr><td align="center">31</td><td>Request waitlist</td></tr>
+            <tr><td align="center">32</td><td>Resequence</td></tr>
+            <tr><td align="center">33</td><td>Proceed without input</td></tr>
+            <tr><td align="center">34</td><td>Terminate current test or load request</td></tr>
+            <tr><td align="center">35</td><td>Test lights</td></tr>
+            <tr><td align="center">36</td><td>Fresh start</td></tr>
+            <tr><td align="center">37</td><td>Change program</td></tr>
+        </table>
+        <h2>Extended Verbs</h2>
+        <table>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+            </tr>
+            <tr><td align="center">40</td><td>Zero CDUs</td></tr>
+            <tr><td align="center">41</td><td>Coarse align CDUs</td></tr>
+            <tr><td align="center">42</td><td>Fine align IMU</td></tr>
+            <tr><td align="center">43</td><td>Load IMU attitude error meters</td></tr>
+            <tr><td align="center">44</td><td>Set surface flag</td></tr>
+            <tr><td align="center">45</td><td>Reset surface flag</td></tr>
+            <tr><td align="center">46</td><td>Establish G&amp;C control</td></tr>
+            <tr><td align="center">47</td><td>Load LM state vector to CM</td></tr>
+            <tr><td align="center">48</td><td>Request DAP data load</td></tr>
+            <tr><td align="center">49</td><td>Request crew-defined maneuver</td></tr>
+            <tr><td align="center">50</td><td>Please perform</td></tr>
+            <tr><td align="center">51</td><td>Please mark</td></tr>
+            <tr><td align="center">52</td><td>Mark on offset landing site</td></tr>
+            <tr><td align="center">53</td><td>Please perform alternate LOS mark</td></tr>
+            <tr><td align="center">54</td><td>Request rendezvous backup sighting mark routine</td></tr>
+            <tr><td align="center">55</td><td>Increment AGC time</td></tr>
+            <tr><td align="center">56</td><td>Terminate tracking</td></tr>
+            <tr><td align="center">57</td><td>Display update state of FULTKFLG</td></tr>
+            <tr><td align="center">58</td><td>Enable auto maneuver in P20</td></tr>
+            <tr><td align="center">59</td><td>Please calibrate</td></tr>
+            <tr><td align="center">60</td><td>Set astronaut total attitude (N17) to present attitude</td></tr>
+            <tr><td align="center">61</td><td>Display DAP attitude error</td></tr>
+            <tr><td align="center">62</td><td>Display total attitude error WRT N22</td></tr>
+            <tr><td align="center">63</td><td>Display total astronaut error attitude WRT N17</td></tr>
+            <tr><td align="center">64</td><td>Request S-band antenna routine</td></tr>
+            <tr><td align="center">65</td><td>Optical verification of prelaunch alignment</td></tr>
+            <tr><td align="center">66</td><td>Vehicles attached, transfer state vector</td></tr>
+            <tr><td align="center">67</td><td>Update AGC clock</td></tr>
+            <tr><td align="center">69</td><td>Cause restart</td></tr>
+            <tr><td align="center">70</td><td>Update liftoff time</td></tr>
+            <tr><td align="center">71</td><td>Universal update - block address</td></tr>
+            <tr><td align="center">72</td><td>Universal update - single address</td></tr>
+            <tr><td align="center">73</td><td>Update AGC time</td></tr>
+            <tr><td align="center">74</td><td>Initialize erasable dump via downlink</td></tr>
+            <tr><td align="center">75</td><td>Backup liftoff</td></tr>
+            <tr><td align="center">78</td><td>Update prelaunch azimuth</td></tr>
+            <tr><td align="center">80</td><td>Update LM state vector</td></tr>
+            <tr><td align="center">81</td><td>Update CSM state vector</td></tr>
+            <tr><td align="center">82</td><td>Request orbital parameters display</td></tr>
+            <tr><td align="center">83</td><td>Request rendezvous parameter display</td></tr>
+            <tr><td align="center">85</td><td>Request rendezvous parameter display #2</td></tr>
+            <tr><td align="center">86</td><td>Reject rendezvous backup sighting mark</td></tr>
+            <tr><td align="center">87</td><td>Set VHF range flag</td></tr>
+            <tr><td align="center">88</td><td>Reset VHF range flag</td></tr>
+            <tr><td align="center">89</td><td>Request rendezvous final attitude</td></tr>
+            <tr><td align="center">90</td><td>Request rendezvous out of plane display</td></tr>
+            <tr><td align="center">91</td><td>Display bank sum</td></tr>
+            <tr><td align="center">92</td><td>Update IMU performance test</td></tr>
+            <tr><td align="center">93</td><td>Enable W matrix initialization</td></tr>
+            <tr><td align="center">94</td><td>Perform cislunar attitude maneuver</td></tr>
+            <tr><td align="center">96</td><td>Terminate integration and go to P00</td></tr>
+            <tr><td align="center">97</td><td>Perform engine fail procedure</td></tr>
+            <tr><td align="center">99</td><td>Please enable engine</td></tr>
+        </table>
+    </div>
+</body>
+</html>

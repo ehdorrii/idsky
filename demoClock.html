@@ -1,0 +1,59 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY Demonstration</h1>
+    <div id="content">
+        <h2>Clock Display - Procedure</h2>
+        <table>
+            <tr>
+                <th>Action</th>
+                <th>Response</th>
+            </tr>
+            <tr><td>V06N36E</td><td>Current Mission Elapsed Time is displayed.</td></tr>
+            <tr><td>E</td><td>Updated Mission Elapsed Time is displayed.</td></tr>
+            <tr><td>V16E</td><td>Mission elapsed time is displayed,
+                                    and automatically updated at 1-second intervals.</td></tr>
+            <tr><td>V</td><td>Flashing KEY REL</td></tr>
+            <tr><td>25E</td><td>Flashing V21N36</td></tr>
+            <tr><td>+000hhE</td><td>Flashing V22N36</td></tr>
+            <tr><td>+000mmE</td><td>Flashing V23N36</td></tr>
+            <tr><td>+0ss00E</td><td>Steady V23N36</td></tr>
+            <tr><td>KEY REL</td><td>Entered time is displayed.</td></tr>
+        </table>
+        <h2>Clock Display - Commentary</h2>
+        <p>Like most computers, the AGC had a real-time clock. This clock was started at
+           lift-off, and had a range of about 745 hours, 39 minutes (roughly 31 days). All 
+           events during the flight were scheduled using this Mission Elapsed Time (MET). 
+           Noun 36, "Time of AGC Clock," is the AGC's internal value for MET. It is 
+           displayed in three parts: register 1 shows the hours (+00hhh), register 2 shows 
+           the minutes (+000mm), and register 3 shows seconds and milliseconds (+0ssmm).</p> 
+        <p>Verb 06 (display) provides a static display of the current value(s) of a specified Noun. 
+           Pressing V06N36E displays the current value of Noun 36 (MET). Once a Verb and Noun have 
+           been entered, pressing just ENTR re-executes the displayed Verb, and you will see the 
+           new current value(s) of the specified Noun.</p>
+        <p>Verb 16 (monitor) provides a display of the selected noun which is updated at 1-second 
+           intervals. While a monitor Verb is active, pressing VERB, NOUN or CLR will stop
+           the display from updating, and light the KEY REL annunciator. KEY REL is an 
+           indication that the computer has data to display, but it cannot because the user
+           is currently using the DSKY for another purpose. Pressing the KEY REL key relinquishes 
+           control of the DSKY to the computer, and the display resumes.</p>
+        <p>Verbs in the range 21-25 are used to change the value(s) of a noun. If you key in 
+           a Verb without changing the current Noun, the new Verb acts on the currently selected 
+           Noun. When a Load verb is entered, the Verb and Noun values blink to indicate that 
+           the computer is expecting the user to enter a value. Verb 21 indicates that component 
+           1 of the Noun is to be entered, Verb 22 indicates component 2, and Verb 23 indicates 
+           component 3. Once all three components have been entered, the Verb and Noun stop blinking.</p>
+        <p>KEY REL has been flashing while you were entering the new values for Noun 36, and
+           once you have entered the last component, you must press KEY REL to allow the monitor
+           display to continue. When you do this, you will see that the clock was updated to
+           the value you entered when you pressed ENTR on the last component.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY Demonstration</h1>
+    <div id="content">
+        <h2>Initialization - Procedure</h2>
+        <table>
+            <tr>
+                <th>Action</th>
+                <th>Response</th>
+            </tr>
+            <tr><td>V35E</td><td>All alerts and digits lit
+                             <br>...then alerts out</td></tr>
+            <tr><td>V36E</td><td>Clear digits</td></tr>
+            <tr><td>V21N27E</td><td>Flashing V21N27</td></tr>
+            <tr><td>4E</td><td>Flash stops</td></tr>
+            <tr><td>V91E</td><td>Flashing V05N01</td></tr>
+            <tr><td>PRO</td><td>Repeat until done</td></tr>
+            <tr><td>V34E</td><td>Display is cleared.</td></tr>
+            <tr><td>V37E</td><td>Flashing V37</td></tr>
+            <tr><td>01E</td><td>01 appears in PROG
+                            <br>...NO ATT on
+                            <br>...NO ATT off
+                            <br>...PROG changes to 02</td></tr>
+        </table>
+        <h2>Initialization - Commentary</h2>
+        <p>Prior to preparing the AGC for launch, a few tests are run to verify the hardware is 
+		operating correctly. The first test ensures that all the alert lights and digit segments 
+		on the DSKY are operational. Verb 35 (Test Lights) initiates this check. The lights and 
+		digits are all illuminated, and the lights and digits that have a flash feature flash. 
+		After 5 seconds, the alerts are all turned off, but the digits remain lit. These are 
+		extinguished using Verb 36 (Fresh Start).</p>
+        <p>Next, self check routines are initiated by using Verb 21 (Load) to load Noun 27 (Self 
+		Test options) with a value of 4 (4 specifies that erasable memory will be tested). This test
+		will continue in the background until explicitly stopped by loading Noun 27 with a value
+        of 0. Should an error be detected by this routine the PROG alert will be illuminated.</p>
+        <p>Finally, to verify that fixed memory is valid, Verb 91 is used to display checksum
+		values for each of the 36 banks of fixed memory. The last word of each bank of fixed memory
+		contains a value that, when added to the sum of all the other words in the bank results in
+		the bank number &mdash; or the complement of the bank number. The display for each bank 
+		consists of (R1) the calculated bank sum, (R2) the bank number, and (R3) the check word. 
+		After each bank is displayed, the next can be displayed by pressing PRO. The display is 
+		terminated with V34 (Terminate function).</p>
+    </div>
+</body>
+</html>

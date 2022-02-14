@@ -1,0 +1,151 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY</h1>
+    <div id="content">
+        <h2>The Basics</h2>
+        <p>The user interface of the Apollo Guidance Computer was the "Display and Keyboard," which was
+        abbreviated to DSKY, and pronounced "dis-key". The Command Module had two DSKYs - one on the
+        Main Display Console, and one at the navigation station. The Lunar Module had a single DSKY.</p>
+        <h2>Display</h2>
+        <p>The display consists of two major parts: the alert annunciators on the left, and
+        the numeric display on the right. The alert annunicators are used to highlight various conditions:</p>
+        <table>
+            <tr>
+                <th>&nbsp;&nbsp;&nbsp;Legend&nbsp;&nbsp;&nbsp;</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">UPLINK<br>ACTY</div></td>
+                <td>Data is being uplinked to the AGC from Mission Control.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">NO ATT</div></td>
+                <td>The Inertial Measurement Unit (IMU) is not in a state to provide
+                  useful attitude reference data. It needs to be initialized.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">STBY</div></td>
+                <td>The AGC is in low-power standby mode. This state is entered by
+                  executing PROG 06; it can be exited by pressing the PRO key.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">KEY REL</div></td>
+                <td>The AGC has data to display, but the DSKY is currently
+                  being used by a crewmember for another task. When that task is completed, the 
+                  crewmember should press KEY REL to allow the pending data to be displayed.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">OPR ERR</div></td>
+                <td>A keystroke combination was entered that was not valid. For example
+                the user tried to load data into a noun that is not permitted to be loaded.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">TEMP</div></td>
+                <td>The temperature of the IMU is outside its normal operating limits.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">GIMBAL<br>LOCK</div></td>
+                <td>This is a warning that the middle gimbal of the IMU is within 
+                  15&deg; of entering a configuration that will prevent free gimbaling. If Gimbal Lock 
+                  actually occurs, NO ATT will be illuminated.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">PROG</div></td>
+                <td>An internal hardware or software error was detected. The RSET key
+                  can be used to acknowledge the alert and reset the PROG annunciator. V05N09E can be 
+                  used to display more information on the specific error.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">RESTART</div></td>
+                <td>An error has occurred that required an automatic restart of the
+                  executing program. As with the PROG alert, RSET will turn off the RESTART annunciator.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">TRACKER</div></td>
+                <td>An failure has occurred in the optics subsystem electronics.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">ALT</div></td>
+                <td>(<i>LM only</i>) <i>Flashing:</i> Landing radar altitude reasonability
+                test failed.<br><i>Steady:</i> Landing radar range data not good.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-yellow">VEL</div></td>
+                <td>(<i>LM only</i>)  <i>Flashing:</i> Landing radar velocity reasonability
+                test failed.<br><i>Steady:</i> Landing radar velocity data not good.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">PRIO<br>DISP</div></td>
+                <td>(<i>LM only</i>) A priority display from P20 is pending.</td>
+            </tr>
+            <tr>
+                <td><div class="annunciator-white">NO DAP</div></td>
+                <td>(<i>LM only</i>) Indicates that the Digital Autopilot is not
+                controlling the spacecraft attitude.</td>
+            </tr>
+            <tr>
+                <td colspan="2"><i>Note: These annunciators were slightly different between the CM and the LM
+                DSKYs. Also, they occasionally would be changed or rearranged on different flights. What is
+                shown in iDSKY is a typical CM arrangement.</i></td>
+            </tr>
+        </table>
+        <p>The numeric part of the display consists of three 2-digit displays that indicate the currently
+        active Program, Verb and Noun; and three signed 5-digit registers. If a sign a present, this indicates
+        that decimal data is being displayed; the absence of a sign indicates that data is displayed in
+        octal.</p>
+        <h2>Keyboard</h2>
+        <p>This is the primary input method. Additional input controls are available at the
+        navigation station.</p>
+        <table>
+            <tr>
+                <th>&nbsp;&nbsp;&nbsp;Key&nbsp;&nbsp;&nbsp;</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">+</div>and<br><div class="keytop">&ndash;</div></td>
+                <td>Indicates that the following data entry is decimal. Decimal data
+                entry requires that five digits must be entered (i.e. leading zeroes are required).</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">VERB</div></td>
+                <td>Used to blank the Verb code and initiate Verb entry.</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">NOUN</div></td>
+                <td>Used to blank the Noun code and initiate Noun entry.</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">CLR</div></td>
+                <td>Clears the register currently being loaded. Subsequent presses will clear 
+                previously loaded registers.</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">PRO</div></td>
+                <td>Used to indicate that the currently running program should proceed without
+                any further input.</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">KEY<br>REL</div></td>
+                <td>Releases the display for internal use.</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">ENTR</div></td>
+                <td>Terminates data entry.</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="keytop">RSET</div></td>
+                <td>Clears the OPR ERR annunciator.</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

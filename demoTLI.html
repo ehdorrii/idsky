@@ -1,0 +1,77 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<head>
+    <title>iDSKY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css"  href="css/iDSKY.css">
+</head>
+
+<body>
+    <h1>iDSKY Demonstration</h1>
+    <div id="content">
+        <h2>TLI - Procedure</h2>
+        <table>
+            <tr>
+                <th>Action</th>
+                <th>Response</th>
+            </tr>
+            <tr><td>V37E</td><td>Flashing V37</td></tr>
+            <tr><td>15E</td><td>15 appears in PROG
+                            <br>Flashing 06&nbsp;&nbsp;33</td></tr>
+            <tr><td>PRO</td><td>Flashing 06&nbsp;&nbsp;14</td></tr>
+            <tr><td>PRO</td><td>06&nbsp;&nbsp;95
+                            <br>XX&nbsp;&nbsp;XX - TIG 
+                            <br>XXXXX - Vg
+                            <br>XXXXX - Vi</td></tr>
+            <tr><td>&nbsp;</td><td>At TLI-9:38
+                            <br>UPLINK ACTY on for 10 sec</td></tr>
+            <tr><td>&nbsp;</td><td>At TLI-1:45
+                            <br>DSKY blanks for 5 sec</td></tr>
+            <tr><td>&nbsp;</td><td>At TLI+0:10
+                            <br>R1 changes to TCO</td></tr>
+            <tr><td>&nbsp;</td><td>At TCO
+                            <br>16&nbsp;&nbsp;95
+                            <br>00&nbsp;&nbsp;00 - TIG 
+                            <br>00000 - Vg
+                            <br>XXXXX - Vi</td></tr>
+            <tr><td>PRO</td><td>&nbsp;</td></tr>
+            <tr><td>V37E</td><td>Flashing V37</td></tr>
+            <tr><td>00E</td><td>00 appears in PROG</td></tr>
+        </table>
+        <h2>TLI - Commentary</h2>
+        <p>Trans-lunar injection (TLI) is performed by the third stage of the Saturn V, the
+          S-IVB, and so is controlled by the Launch Vehicle Digital Computer (LVDC). So like
+          the launch phase, this event is only monitored by the AGC.</p>
+        <p>The LVDC schedules
+          events based on nine Time Bases (TBs). The first is TB0, which occurs 
+          approximately 17 minutes prior to launch. TB6 is used as the time reference for TLI,
+          and occurs 9 minutes and 38 seconds prior to S-IVB ignition. During the time leading
+          up to ignition, various events are scheduled - cessation of tank venting, helium tank
+          heating, ullage motor ignition, turbine spin-up, and so on.</p>
+        <p>The burn parameters for TLI are uploaded directly to the LVDC from
+          mission control, but the TLI Initiate/Cutoff program (P15) affords the crew the
+          opportunity to manually update the initiation time of TB6, as well as the desired
+          target velocity.</p>
+        <p>Verb 37 (Change Program) is used to request P15 (TLI Initiate/Cutoff). When P15
+          is started, it shows the currently set TB6 initiation time (Noun 33). This can be 
+          changed by pressing V25E, and then entering the new time; or the displayed time can 
+          be accepted by pressing PRO (Proceed).</p>
+        <p>Next, the desired target inertial velocity (Noun 14) is displayed. Again, it can
+          be changed by pressing V21E, and loading the new value; or accepted by pressing PRO.</p>
+        <p>Once these parameters are set, P15 indicates the progression of the S-IVB engine
+          startup sequence by various lights. When the start sequence begins, the UPLINK ACTY
+          annuciator illuminates for 5 seconds. 105 seconds prior to ignition, the DSKY
+          display is blanked for 5 seconds. In the time leading up to ignition, the 
+          time-to-ignition is displayed in R1. Ten seconds after ignition occurs, R1 is changed
+          to show time-to-cutoff.</p>
+        <p>During the burn, R2 displays the remaining velocity to be gained (in feet
+          per second), and R3 displays the current inertial velocity (also in fps). The display
+          is updated at 1-second intervals, so you can watch R2 (as well as R1) count down 
+          to zero, and R3 increment until the desired velocity is achieved.</p>
+        <p>Once engine cutoff occurs, the display remains static. At this point a new program
+          is selected.</p>
+          
+    </div>
+</body>
+</html>
