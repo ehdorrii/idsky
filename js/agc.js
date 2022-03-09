@@ -118,6 +118,7 @@ function agcInit() {
         dskyOn("LGC");
     }
     setProgs();
+	setNounTabs();
     
 	// Begin the T2 timer, which keeps track of AGC time
 	
