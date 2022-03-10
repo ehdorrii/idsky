@@ -507,25 +507,25 @@ function dpStore(theCadr, theMagnitude, theSign) {
 }
 
 function setFlag(theFlag) {
-    var theCadr = FLAGWRD0 + Math.floor(theFlag / 15);
+    var theCadr = FLAGWRD0 + Math.floor(theFlag / 16);
     var theBit = 1 << ((theFlag - 1) % 15);
     e[theCadr] |= theBit;
 }
 
 function clearFlag(theFlag) {
-    var theCadr = FLAGWRD0 + Math.floor(theFlag / 15);
+    var theCadr = FLAGWRD0 + Math.floor(theFlag / 16);
     var theBit = 1 << ((theFlag - 1) % 15);
     e[theCadr] &= MaxUns - theBit;
 }
 
 function flagIsSet(theFlag) {
-    var theCadr = FLAGWRD0 + Math.floor(theFlag / 15);
+    var theCadr = FLAGWRD0 + Math.floor(theFlag / 16);
     var theBit = 1 << ((theFlag - 1) % 15);
     return (e[theCadr] & theBit) !== 0;
 }
 
 function flagIsClear(theFlag) {
-    var theCadr = FLAGWRD0 + Math.floor(theFlag / 15);
+    var theCadr = FLAGWRD0 + Math.floor(theFlag / 16);
     var theBit = 1 << ((theFlag - 1) % 15);
     return (e[theCadr] & theBit) == 0;
 }

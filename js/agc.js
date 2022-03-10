@@ -292,7 +292,7 @@ function progAlert(theError, theWhere, theWhat) {
     console.trace();
     setAlert(aPROG);
 
-    eStore(ALMCADR, theError);
+    eStore(ALMCADR, theError & 007777);
     eStore(ALMCADR+1, theWhere);
     eStore(ALMCADR+2, theWhat);
 	
